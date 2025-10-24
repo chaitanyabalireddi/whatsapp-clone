@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { chatAPI, messageAPI } from '../utils/api';
-import { getSocket } from '../utils/socket';
+import { getSocket, initializeSocket } from '../utils/socket';
 import { toast } from 'react-toastify';
 import { useAuth } from './AuthContext';
 
@@ -26,17 +26,22 @@ export const ChatProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       fetchChats();
+      // Initialize socket first, then setup listeners
+      const socket = initializeSocket();
+      socket.emit('setup', user._id);
       setupSocketListeners();
     }
 
     return () => {
       const socket = getSocket();
-      socket.off('message-received');
-      socket.off('typing');
-      socket.off('stop-typing');
-      socket.off('user-online');
-      socket.off('user-offline');
-      socket.off('message-read-update');
+      if (socket) {
+        socket.off('message-received');
+        socket.off('typing');
+        socket.off('stop-typing');
+        socket.off('user-online');
+        socket.off('user-offline');
+        socket.off('message-read-update');
+      }
     };
   }, [user]);
 

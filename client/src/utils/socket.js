@@ -8,6 +8,24 @@ export const initializeSocket = () => {
   if (!socket) {
     socket = io(SOCKET_URL, {
       transports: ['websocket', 'polling'],
+      autoConnect: true,
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: 5,
+      timeout: 20000,
+    });
+    
+    // Add connection event listeners
+    socket.on('connect', () => {
+      console.log('Socket connected:', socket.id);
+    });
+    
+    socket.on('disconnect', () => {
+      console.log('Socket disconnected');
+    });
+    
+    socket.on('connect_error', (error) => {
+      console.error('Socket connection error:', error);
     });
   }
   return socket;
