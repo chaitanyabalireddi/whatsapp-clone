@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp-clone",
+  "version": "1.0.0",
+  "description": "A fully functional WhatsApp-like chat application",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && nodemon index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "start": "cd server && node index.js",
+    "test-api": "node test-api.js",
+    "test-network": "node test-network.js",
+    "setup": "npm run install-all"
+  },
+  "keywords": ["chat", "whatsapp", "real-time", "messaging"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}
+

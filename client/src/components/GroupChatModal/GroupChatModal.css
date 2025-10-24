@@ -1,0 +1,91 @@
+.group-form {
+  padding: 16px 20px;
+  border-bottom: 1px solid #2a2f32;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.group-name-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: #2a3942;
+  border: none;
+  border-radius: 8px;
+  color: #e9edef;
+  font-size: 15px;
+  outline: none;
+}
+
+.group-name-input::placeholder {
+  color: #667781;
+}
+
+.selected-users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.selected-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #005c4b;
+  padding: 6px 12px;
+  border-radius: 16px;
+  color: #e9edef;
+  font-size: 13px;
+}
+
+.selected-user-chip button {
+  background: transparent;
+  border: none;
+  color: #e9edef;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.user-item.selected {
+  background: #2a3942;
+}
+
+.check-icon {
+  color: #25d366;
+  margin-left: auto;
+  font-size: 18px;
+}
+
+.modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #2a2f32;
+}
+
+.create-group-button {
+  width: 100%;
+  padding: 14px 16px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.create-group-button:hover:not(:disabled) {
+  background: #20bd5a;
+  transform: translateY(-2px);
+}
+
+.create-group-button:disabled {
+  background: #2a3942;
+  color: #667781;
+  cursor: not-allowed;
+  transform: none;
+}
+

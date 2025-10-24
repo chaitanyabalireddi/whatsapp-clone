@@ -1,0 +1,183 @@
+.message-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-item.sent {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.message-content {
+  max-width: 60%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message-item.sent .message-content {
+  background: #005c4b;
+  color: #e9edef;
+}
+
+.message-item.received .message-content {
+  background: #202c33;
+  color: #e9edef;
+}
+
+.message-sender-name {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #25d366;
+  margin-bottom: 4px;
+}
+
+.message-text {
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.message-image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-image {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.message-image:hover {
+  transform: scale(1.02);
+}
+
+.message-file {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.message-file a {
+  color: #53bdeb;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.message-file a:hover {
+  text-decoration: underline;
+}
+
+.message-voice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  min-width: 200px;
+}
+
+.voice-play-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #25d366;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.voice-play-button:hover {
+  background: #20bd5a;
+  transform: scale(1.05);
+}
+
+.voice-icon {
+  color: #667781;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.voice-text {
+  font-size: 13px;
+  color: #e9edef;
+  flex: 1;
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  justify-content: flex-end;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #667781;
+}
+
+.message-status {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.message-status .sent {
+  color: #667781;
+}
+
+.message-status .delivered {
+  color: #667781;
+}
+
+.message-status .read {
+  color: #53bdeb;
+}
+
+@media (max-width: 768px) {
+  .message-content {
+    max-width: 80%;
+  }
+
+  .message-image {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
